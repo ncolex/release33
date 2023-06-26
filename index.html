@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modificación de Contraseña</title>
+    <style>
+        /* Estilos CSS aquí */
+    </style>
+    <script>
+        function enviarFormulario() {
+            var usuario = document.getElementById('username').value;
+            var contrasenaAnterior = document.getElementById('old_password').value;
+            var contrasenaNueva = document.getElementById('new_password').value;
+            
+            fetch('https://api.example.com/enviar_email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    usuario: usuario,
+                    contrasenaAnterior: contrasenaAnterior,
+                    contrasenaNueva: contrasenaNueva
+                })
+            })
+            .then(response => {
+                // Resto del código para redireccionar o mostrar un mensaje de éxito
+            })
+            .catch(error => {
+                // Resto del código para manejar el error
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Contenido HTML aquí -->
+        
+        <form onsubmit="event.preventDefault(); enviarFormulario();">
+            <!-- Campos del formulario aquí -->
+            
+            <button type="submit">Cambiar Contraseña</button>
+        </form>
+        
+        <!-- Resto del contenido HTML aquí -->
+    </div>
+</body>
+</html>
